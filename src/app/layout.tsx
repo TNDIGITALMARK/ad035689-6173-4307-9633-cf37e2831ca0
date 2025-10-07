@@ -18,8 +18,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Elegant Flora Boutique",
-  description: "Beautiful AI-powered website creation platform",
+  title: "Toronto Luxe Realty - Find Your Dream Toronto Home",
+  description: "Discover luxury properties in Toronto with Toronto Luxe Realty. Browse exclusive listings, connect with expert agents, and find your perfect home in Canada's premier city.",
 };
 
 export default function RootLayout({
