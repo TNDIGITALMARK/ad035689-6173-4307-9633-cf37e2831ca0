@@ -63,51 +63,51 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       {/* Navigation */}
-      <nav className="bg-white shadow-sm border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
+      <nav className="bg-background border-b border-border/50 backdrop-blur-lg">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center">
-              <div className="text-xl font-bold text-primary">
-                <span className="text-primary">TORONTO LUXE</span>
+              <div className="text-2xl font-light tracking-wider text-primary">
+                TORONTO LUXE
               </div>
             </div>
-            <div className="hidden md:flex space-x-8">
-              <a href="#" className="text-gray-700 hover:text-primary">Buy</a>
-              <a href="#" className="text-gray-700 hover:text-primary">Sell</a>
-              <a href="#" className="text-gray-700 hover:text-primary">Rent</a>
-              <a href="#" className="text-gray-700 hover:text-primary">About Us</a>
+            <div className="hidden md:flex space-x-12">
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">Buy</a>
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">Sell</a>
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">Rent</a>
+              <a href="#" className="text-foreground/80 hover:text-primary transition-colors text-sm font-medium">About</a>
             </div>
           </div>
         </div>
       </nav>
 
       {/* Hero Section */}
-      <section className="relative h-[600px] bg-gradient-to-r from-slate-900/80 to-slate-800/80">
-        <div
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{
-            backgroundImage: "url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80')"
-          }}
-        />
-        <div className="absolute inset-0 bg-slate-900/60" />
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center">
-          <div className="text-center w-full">
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              FIND YOUR DREAM<br />TORONTO HOME
-            </h1>
-            <div className="max-w-2xl mx-auto">
-              <div className="bg-white/95 p-6 rounded-lg shadow-lg">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <div className="flex-1">
-                    <input
-                      type="text"
-                      placeholder="Enter location, address, or MLS®"
-                      className="w-full px-4 py-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary"
-                    />
+      <section className="relative h-[80vh] min-h-[600px] bg-gradient-to-b from-background to-background/95">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background" />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 h-full flex items-center">
+          <div className="w-full">
+            <div className="max-w-4xl">
+              <h1 className="text-5xl md:text-7xl font-light text-foreground mb-8 leading-tight">
+                Find Your<br />
+                <span className="text-primary font-normal">Toronto Home</span>
+              </h1>
+              <p className="text-xl text-muted-foreground mb-12 max-w-2xl">
+                Discover exceptional properties in Canada's premier city with our curated selection of luxury homes.
+              </p>
+              <div className="max-w-2xl">
+                <div className="bg-card/50 backdrop-blur-sm p-8 rounded-2xl border border-border/50">
+                  <div className="flex flex-col md:flex-row gap-4">
+                    <div className="flex-1">
+                      <input
+                        type="text"
+                        placeholder="Enter location or address"
+                        className="w-full px-6 py-4 bg-input border border-border rounded-xl focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground placeholder:text-muted-foreground"
+                      />
+                    </div>
+                    <Button className="px-8 py-4 bg-primary hover:bg-primary/90 rounded-xl font-medium">
+                      Search Properties
+                    </Button>
                   </div>
-                  <Button className="px-8 py-3 bg-primary hover:bg-primary/90">
-                    Search
-                  </Button>
                 </div>
               </div>
             </div>
@@ -116,51 +116,51 @@ export default function HomePage() {
       </section>
 
       {/* Featured Luxury Listings */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              FEATURED LUXURY LISTINGS
+      <section className="py-24 bg-background">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-16">
+            <h2 className="text-4xl font-light text-foreground mb-4">
+              Featured Properties
             </h2>
+            <div className="w-24 h-px bg-primary" />
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {featuredProperties.map((property) => (
-              <Card key={property.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                <div className="relative h-64">
+              <Card key={property.id} className="bg-card border-border/50 overflow-hidden hover:border-primary/50 transition-all duration-300 group">
+                <div className="relative h-80">
                   <Image
                     src={property.image}
                     alt={property.address}
                     fill
-                    className="object-cover"
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
                   />
-                  <Badge className="absolute top-4 left-4 bg-primary text-white">
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                  <Badge className="absolute top-6 left-6 bg-primary/90 text-primary-foreground backdrop-blur-sm border-0">
                     {property.type}
                   </Badge>
                 </div>
-                <CardContent className="p-6">
-                  <div className="flex justify-between items-start mb-4">
-                    <div>
-                      <h3 className="text-2xl font-bold text-primary mb-2">
-                        {property.price}
-                      </h3>
-                      <p className="text-gray-600 flex items-center">
-                        <MapPin className="h-4 w-4 mr-1" />
-                        {property.address}, {property.location}
-                      </p>
-                    </div>
+                <CardContent className="p-8">
+                  <div className="mb-6">
+                    <h3 className="text-3xl font-light text-primary mb-3">
+                      {property.price}
+                    </h3>
+                    <p className="text-muted-foreground flex items-center text-sm">
+                      <MapPin className="h-4 w-4 mr-2 opacity-60" />
+                      {property.address}, {property.location}
+                    </p>
                   </div>
-                  <div className="flex justify-between text-sm text-gray-500">
-                    <span className="flex items-center">
-                      <Bed className="h-4 w-4 mr-1" />
-                      {property.beds} Beds
+                  <div className="flex justify-between pt-6 border-t border-border/50">
+                    <span className="flex items-center text-sm text-muted-foreground">
+                      <Bed className="h-4 w-4 mr-2 opacity-60" />
+                      {property.beds}
                     </span>
-                    <span className="flex items-center">
-                      <Bath className="h-4 w-4 mr-1" />
-                      {property.baths} Baths
+                    <span className="flex items-center text-sm text-muted-foreground">
+                      <Bath className="h-4 w-4 mr-2 opacity-60" />
+                      {property.baths}
                     </span>
-                    <span className="flex items-center">
-                      <Square className="h-4 w-4 mr-1" />
-                      {property.sqft} sqft
+                    <span className="flex items-center text-sm text-muted-foreground">
+                      <Square className="h-4 w-4 mr-2 opacity-60" />
+                      {property.sqft}
                     </span>
                   </div>
                 </CardContent>
@@ -170,111 +170,123 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Ready to Find Your New Home Section */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              READY TO FIND YOUR NEW HOME?
+      {/* Agents Section */}
+      <section className="py-24 bg-card/30">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="mb-16">
+            <h2 className="text-4xl font-light text-foreground mb-4">
+              Meet Our Experts
             </h2>
+            <div className="w-24 h-px bg-primary" />
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            {/* Agents */}
-            <div>
-              <div className="space-y-6">
-                {agents.map((agent, index) => (
-                  <div key={index} className="flex items-center space-x-4 p-6 bg-gray-50 rounded-lg">
-                    <div className="h-16 w-16 rounded-full bg-gray-300 flex-shrink-0">
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
+            {agents.map((agent, index) => (
+              <div key={index} className="group">
+                <div className="bg-card border border-border/50 p-8 rounded-2xl hover:border-primary/50 transition-all duration-300">
+                  <div className="flex items-start space-x-6">
+                    <div className="h-20 w-20 rounded-full bg-muted flex-shrink-0 overflow-hidden">
                       <Image
                         src={agent.image}
                         alt={agent.name}
-                        width={64}
-                        height={64}
+                        width={80}
+                        height={80}
                         className="rounded-full object-cover"
                       />
                     </div>
                     <div className="flex-1">
-                      <h3 className="font-bold text-gray-900">{agent.name}</h3>
-                      <p className="text-gray-600 text-sm">{agent.title}</p>
-                      <div className="flex flex-wrap gap-2 mt-2">
+                      <h3 className="text-xl font-medium text-foreground mb-2">{agent.name}</h3>
+                      <p className="text-muted-foreground text-sm mb-4">{agent.title}</p>
+                      <div className="flex flex-wrap gap-2 mb-6">
                         {agent.specialties.map((specialty, i) => (
-                          <Badge key={i} variant="secondary" className="text-xs">
+                          <Badge key={i} variant="secondary" className="text-xs bg-secondary/50 text-secondary-foreground">
                             {specialty}
                           </Badge>
                         ))}
                       </div>
-                    </div>
-                    <div className="flex flex-col space-y-2">
-                      <Button size="sm" variant="outline">
-                        <Phone className="h-4 w-4 mr-1" />
-                        Call
-                      </Button>
-                      <Button size="sm" variant="outline">
-                        <Mail className="h-4 w-4 mr-1" />
-                        Email
-                      </Button>
+                      <div className="flex gap-3">
+                        <Button size="sm" variant="outline" className="border-border/50 hover:border-primary/50">
+                          <Phone className="h-4 w-4 mr-2" />
+                          Contact
+                        </Button>
+                        <Button size="sm" variant="outline" className="border-border/50 hover:border-primary/50">
+                          <Mail className="h-4 w-4 mr-2" />
+                          Email
+                        </Button>
+                      </div>
                     </div>
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            ))}
+          </div>
 
-            {/* Featured Areas */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="relative h-32 rounded-lg overflow-hidden">
+          {/* Featured Areas */}
+          <div className="mb-16">
+            <h3 className="text-2xl font-light text-foreground mb-8">
+              Popular Neighborhoods
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="relative h-40 rounded-xl overflow-hidden group">
                 <Image
                   src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="The Annex"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <span className="text-white font-semibold">The Annex</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-white font-medium">The Annex</span>
                 </div>
               </div>
-              <div className="relative h-32 rounded-lg overflow-hidden">
+              <div className="relative h-40 rounded-xl overflow-hidden group">
                 <Image
                   src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="Liberty Village"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <span className="text-white font-semibold">Liberty Village</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-white font-medium">Liberty Village</span>
                 </div>
               </div>
-              <div className="relative h-32 rounded-lg overflow-hidden">
+              <div className="relative h-40 rounded-xl overflow-hidden group">
                 <Image
                   src="https://images.unsplash.com/photo-1460574283810-2aab119d8511?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
                   alt="Leslieville"
                   fill
-                  className="object-cover"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
                 />
-                <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                  <span className="text-white font-semibold">Leslieville</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                <div className="absolute bottom-4 left-4">
+                  <span className="text-white font-medium">Leslieville</span>
                 </div>
               </div>
             </div>
           </div>
 
           {/* CTA Button */}
-          <div className="text-center mt-12">
-            <Button className="px-8 py-3 bg-primary hover:bg-primary/90">
-              READY TO FIND YOUR NEW HOME?
+          <div className="text-center">
+            <Button className="px-12 py-4 bg-primary hover:bg-primary/90 rounded-xl text-lg font-medium">
+              Start Your Search
             </Button>
           </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-primary text-white py-8">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-card border-t border-border/50 py-16">
+        <div className="max-w-6xl mx-auto px-6">
           <div className="text-center">
-            <h3 className="text-xl font-bold mb-2">TORONTO LUXE REALTY</h3>
-            <p className="text-sm opacity-90">
+            <h3 className="text-2xl font-light text-primary mb-3 tracking-wider">
+              TORONTO LUXE
+            </h3>
+            <p className="text-muted-foreground mb-8">
               Toronto's premier luxury real estate brokerage
             </p>
-            <p className="text-xs opacity-75 mt-4">
+            <div className="w-24 h-px bg-border mx-auto mb-8" />
+            <p className="text-sm text-muted-foreground/60">
               © 2024 Toronto Luxe Realty. All rights reserved.
             </p>
           </div>
